@@ -8,12 +8,9 @@ body{
 
 .App{
   box-shadow: 0px 1px 57px 9px rgba(84,77,77,0.43);
-  padding: 4rem ;
-  height: 50vh;
+  padding: 4rem;
   border-radius: 10px;
-
 }
-
 .location{
   display: flex;
   justify-content: space-around;
@@ -49,7 +46,7 @@ body{
 }
 
 .weather-deatils span{
-  margin-top: -10px;
+  margin-top: -20px;
   color: gray;
 }
 
@@ -60,6 +57,10 @@ body{
 img{
   margin-top: -20px;
   height: 100px;
-  color: transparent;
-  visibility: hidden;
+}
+
+.error{
+  font-size: 30px;
+  color: gray;
+  text-align: center;
 }

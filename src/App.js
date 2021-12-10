@@ -8,26 +8,39 @@ function App() {
   const [region, setRegion] = useState("");
   const [text, setText] = useState("");
   const [temp, setTemp] = useState();
-  const [img, setImage] = useState(""); 
+  const [img, setImage] = useState("");
+  const [err, setErr] = useState("") 
   const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}&aqi=no`;
 
   function clickHandler() {
-    console.log("clicked");
     fetch(url)
     .then(resp => {
+      console.log(resp)
+      if(resp.status === 400){
+        setImage("");
+        setName("");
+        setText("");
+        setTemp();
+        setRegion("")
+        setErr("Location not Found");
+      }else{
+        setErr("")
+        
       return resp.json()
+      }
+      
     })
     .then(data => {
+      
       console.log(data);
       setName(data.location.name)
       setRegion(data.location.region)
       setText(data.current.condition.text)
       setTemp(data.current.temp_c)
       setImage(data.current.condition.icon)
-
     })
     .catch(err => {
-      console.log(err);
+     console.log(err);
     });
   }
   return (
@@ -45,8 +58,9 @@ function App() {
         <span>{region}</span>
         <h2>{text}</h2>
         <h1 id="temp">{temp}</h1>
-        <img src={img} alt="weather-img"></img>
+        <img src={img} alt=""></img>
         </div>
+        <div className='error'>{err}</div>
     </div>
   );
 }
