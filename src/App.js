@@ -45,7 +45,7 @@ function App() {
         <span>{region}</span>
         <h2>{text}</h2>
         <h1 id="temp">{temp}</h1>
-        <img src={img}></img>
+        <img src={img} alt="weather-img"></img>
         </div>
     </div>
   );
