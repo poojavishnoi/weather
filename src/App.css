@@ -60,4 +60,6 @@ body{
 img{
   margin-top: -20px;
   height: 100px;
+  color: transparent;
+  visibility: hidden;
 }
